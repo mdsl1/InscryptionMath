@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Inscryption Memory</title>
+      <meta charset="utf-8">
+      <link href="Midias/icon-x.png" type="image/x-icon" rel="icon">
+      <link href="css/MemoryStyle.css" type="text/css" rel="stylesheet">
+    </head>
+    <body onload="startSounds(), startLightningStorm()">
+      <div id="initialMenuContainer">
+        <div id="menuContent">
+          <h1>Inscryption Math</h1>
+          <button id="btnPageGame" onclick="moveToGame()">Iniciar Jogo</button>
+          <button id="btnGuide" onclick="showGuide()">Guia do jogo</button>
+          <button id="btnMusic" onclick="startSounds()">Iniciar Trilha Sonora</button>
+        </div>
+        <div id="guide">
+          <div id="guideInner">
+            <img class="guideItem" src="Midias/Guia/Img1.png">
+            <img class="guideItem" src="Midias/Guia/Img2.png">
+            <img class="guideItem" src="Midias/Guia/Img3.png">
+            <img class="guideItem" src="Midias/Guia/Img4.png">
+            <img class="guideItem" src="Midias/Guia/Img5.png">
+          </div>
+          <div id="btnGuideContainer">
+            <button id="prevItemGuide" onclick="prevGuideItem()">&#10094;</button>
+            <button id="btnCloseGuide" onclick="closeGuide()">Sair do guia</button>
+            <button id="nextItemGuide" onclick="nextGuideItem()">&#10095;</button>
+          </div>
+        </div>
+      </div>
+      <div id="room">
+        <div id="roomInner">
+          <!--Fundo preto-->
+          <div class="window">
+            <button class="bntShowMenu" onclick="moveToMenu()">𓂀</button>
+          </div>
+          <!--Parede de Trás-->
+          <div class="window">
+            <div id="configMenu">
+              <h2>Configurações Sonoras</h2>
+              <div class="soundControl">
+                <p>Volume da Música de fundo</p>
+                <input type="range" id="volumeOst" min="0" max="1" step="0.1" value="0.5">
+                <audio id="ostSong" src="Midias/Sounds/OST.mp4" loop autoplay></audio>
+              </div>
+              <div class="soundControl">
+                <p>Volume da chuva</p>
+                <input type="range" id="volumeRain" min="0" max="1" step="0.1" value="0.5">
+                <audio id="rainSound" src="Midias/Sounds/Rain.mp3" loop autoplay></audio>
+              </div>
+              <div class="soundControl">
+                <p>Volume dos raios</p>
+                <input type="range" id="volumeThunder" min="0" max="1" step="0.1" value="0.5">
+                <audio id="thunderSound" src="Midias/Sounds/Thunder.mp4"></audio>
+              </div>
+              <div class="soundControl">
+                <p>Volume do jumpscare</p>
+                <input type="range" id="volumeJumpscare" min="0" max="1" step="0.1" value="1">
+                <audio id="jumpscareSound" src="Midias/Sounds/Jumpscare.mp4"></audio>
+              </div>
+              <h3>Sair do Menu</h3>
+              <div id="btnConfigMenuContainer">
+                <button id="exitMenuPrev" onclick="prevWindow()">&#10094;</button>
+                <button id="exitMenuNext" onclick="nextWindow()">&#10095;</button>
+              </div>
+            </div>
+          </div>
+          <!--Fundo preto-->
+          <div class="window">
+            <button class="bntShowMenu" onclick="moveToMenu()">𓂀</button>
+          </div>
+          <!--Parede com o score-->
+          <div class="window">
+            <div id="scoreWall">
+              <div id="scoreContainer">
+                <div id="frameContainer">
+                  <div id="movesContainer">
+                      <p>Jogadas Restantes:</p>
+                      <div id="numPlays"></div>
+                  </div>
+                  <div id="lineFrame">
+                    <div id="deathsContainer">
+                      <p>Mortes:</p>
+                      <div id="deaths"></div>
+                    </div>
+                    <div id="winsContainer">
+                      <p>Vitórias:</p>
+                      <div id="wins"></div>
+                    </div>
+                  </div>
+                  <div id="cardsExample">
+                    
+                  </div>
+                </div>
+                <div id="timer">0:00</div> 
+              </div>
+              <button id="btnStart" onclick="startGame()">Iniciar</button>
+            </div>
+          </div>
+          <!--Parede do jogo-->
+          <div class="window">
+            <div id="infoContainer">
+              <div id="mainWindowMovesContainer">
+                <p>Jogadas Restantes:</p>
+                <div id="contPlaysMainWindow"></div>
+              </div>
+              <div id="mainWindowTimerContainer">
+                <p>Tempo restante:</p>
+                <div id="timerMainWindow"></div>
+              </div>
+            </div>
+            <div id="eyeContainer">
+              <div class="eye">
+                  <div class="pupil"></div>
+              </div>
+              <div class="eye">
+                  <div class="pupil"></div>
+              </div>
+            </div>
+            <div id="tableContainer">
+              <div id="cardContainer">
+                  <div id="l1">
+                      <div class="card"></div>
+                      <div class="card"></div>
+                      <div class="card"></div>
+                      <div class="card"></div>
+                  </div>
+                  <div id="l2">
+                      <div class="card"></div>
+                      <div class="card"></div>
+                      <div class="card"></div>
+                      <div class="card"></div>
+                  </div>
+                  <div id="l3">
+                      <div class="card"></div>
+                      <div class="card"></div>
+                      <div class="card"></div>
+                      <div class="card"></div>
+                  </div>
+              </div>
+            </div>
+          </div>
+          <!--Parede da porta-->
+          <div class="window">
+            <div id="doorContainer">
+              <div id="lightning"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Botões de navegação -->
+        <button id="btnPrev" onclick="prevWindow()">&#10094;</button>
+        <button id="btnNext" onclick="nextWindow()">&#10095;</button>
+      </div>
+      <div id="jumpscareContainer">
+        <div id="eyeContainerJumpscare">
+          <div class="eyeJumpscare">
+              <div class="pupilJumpscare"></div>
+          </div>
+          <div class="eyeJumpscare">
+              <div class="pupilJumpscare"></div>
+          </div>
+        </div>
+        <img id="jumpscareImg" src="Midias/Jumpscare.png" alt="Jumpscare">
+      </div>
+      <div id="transition"></div>
+      <script src="js/Room.js" type="text/javascript"></script>
+      <script src="js/MemoryGame.js" type="text/javascript"></script>
+    </body>
+</html>
