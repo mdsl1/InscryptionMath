@@ -1,6 +1,14 @@
 //Arrays com os nomes das cartas e as cartas embaralhadas
-let flippedCardsArray = ["Gato","Guaxinim","Passaro","Rato","Rodrigo","Urso","Gato","Guaxinim","Passaro","Rato","Rodrigo","Urso",];
+let flippedCardsArray = ["A1","A2","D1","D2","E1","E2","F1","F2","M1","M2","S1","S2",];
 let shuffledArray = flippedCardsArray.sort(()=>Math.random()-0.5);
+
+let completeShuffledArray = [];
+for(let i=0;i<6;i++) {
+    completeShuffledArray.push(shuffledArray[i]);
+}
+for(let i=0;i<6;i++) {
+    completeShuffledArray.push("R" + shuffledArray[i]);
+}
 
 //Variaveis para funcionamento do jogo
 let firstCard = "";
@@ -72,12 +80,12 @@ function createCards(){
         back.className = "face back";
         flipped.className = "face flipped";
 
-        back.style.backgroundImage = `url("Midias/${shuffledArray[i]}.png")`
+        back.style.backgroundImage = `url("Midias/Cards/${completeShuffledArray[i]}.png")`        
 
         // Adiciona os elementos back e flipped dentro do card atual
         cardcontainer[i].appendChild(back);
         cardcontainer[i].appendChild(flipped);
-        cardcontainer[i].setAttribute("data-animal", shuffledArray[i]);
+        cardcontainer[i].setAttribute("data-count", completeShuffledArray[i]);
 
         cardcontainer[i].addEventListener("click", revealCard);
 
@@ -143,10 +151,10 @@ function revealCard({target}){
 }
 
 function checkCards(){
-    firstAnimal = firstCard.getAttribute("data-animal");
-    secondAnimal = secondCard.getAttribute("data-animal");
+    firstAnimal = firstCard.getAttribute("data-count");
+    secondAnimal = secondCard.getAttribute("data-count");
 
-    if (firstAnimal == secondAnimal) {
+    if (("R" + firstAnimal == secondAnimal) || (firstAnimal == "R" + secondAnimal)) {
 
         firstCard.firstChild.classList.add('disabledCard');
         secondCard.firstChild.classList.add('disabledCard');
