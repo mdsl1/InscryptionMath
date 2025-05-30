@@ -5,12 +5,18 @@ let totalItems = items.length;
 let roomInner = document.getElementById("roomInner");
 let btnPrev = document.getElementById("btnPrev");
 let btnNext = document.getElementById("btnNext");
+let roomContainer = document.getElementById("room");
+
+// Variavel da mesa das cartas
+let tableContainer = document.getElementById("tableContainer");
+
 //Variaveis para funcionamento do menu inicial
 let initialMenu = document.getElementById("initialMenuContainer");
 let btnPageGame = document.getElementById("btnPageGame");
 let btnGuide = document.getElementById("btnGuide");
 let guideContainer = document.getElementById("guide");
 let btnMusic = document.getElementById("btnMusic");
+
 //Variaveis para funcionamento do carrossel guia
 let guideCurrentIndex = 0;
 let guideItems = document.querySelectorAll(".guideItem");
@@ -18,20 +24,29 @@ let guideTotalItems = guideItems.length;
 let guideInner = document.getElementById("guideInner");
 let btnPrevGuide = document.getElementById("prevItemGuide");
 let btnNextGuide = document.getElementById("nextItemGuide");
+
 //Variaveis para funcionamento dos raios que caem
 let lightningWindow = document.getElementById("lightning");
 let thunderSound = document.getElementById("thunderSound");
 let volumeThunder = document.getElementById("volumeThunder");
+
 //Variaveis para funcionamento da musica de fundo
 let ostSong = document.getElementById("ostSong");
 let volumeOst = document.getElementById("volumeOst");
+
 //Variaveis para funcionamento da chuva de fundo
 let rainSound = document.getElementById("rainSound");
 let volumeRain = document.getElementById("volumeRain");
 
+
+function approachTable() {
+  tableContainer.classList.remove("tableNormal");
+  tableContainer.classList.add("tableFullScreen");
+}
 function moveToGame(){
     initialMenu.style.opacity = '0';
     initialMenu.style.visibility = 'hidden';
+    roomContainer.style.visibility = "visible";
     updateWindow();
 }
 function showGuide(){
@@ -81,7 +96,7 @@ function updateWindow(instant = false) {
   roomInner.style.transform = `translateX(${offset}%)`;
 }
 //Passa pra proxima janela
-function nextWindow(){
+function nextWindow() {
   if (currentIndex == totalItems - 1){
     //Se for o último item, volta ao primeiro instantaneamente
     currentIndex = 0;

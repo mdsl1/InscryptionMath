@@ -13,14 +13,17 @@ let wins = 0;
 let result = 0;
 let gameStarted = 0;
 let btnStartGame = document.getElementById("startGame");
+
 //Variavel para funcionalidade dos olhos que seguem o jogador
 let pupils = document.querySelectorAll(".pupil");
+
 //Variaveis para funcionamento do jumpscare
 let jumpscareContainer = document.getElementById("jumpscareContainer");
 let jumpscareImage = document.getElementById("jumpscareImg");
 let jumpscareSound = document.getElementById("jumpscareSound");
 let volumeJumpscare = document.getElementById("volumeJumpscare");
 //Variavel para transição
+
 let transition = document.getElementById("transition");
 
 function startGame(){
@@ -185,7 +188,7 @@ function endGame(){
     clearInterval(timerInterval); // Para o timer
     if(result == 1){
         transition.style.visibility = "visible";
-        transition.style.opacity = "1"
+        transition.style.opacity = "1";
 
         setTimeout(() => {
             transition.style.opacity = '0';

@@ -21,6 +21,7 @@ body{
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  visibility: hidden;
 }
 #roomInner{
   width: 100%;
@@ -225,6 +226,7 @@ body{
   flex-flow: column nowrap;
   width: 25vw;
   height: 7vh;
+  z-index: 99;
 }
 #mainWindowMovesContainer, #mainWindowTimerContainer{
   display: flex;
@@ -276,13 +278,25 @@ body{
       height: 0;
   }
 }
+
 #tableContainer{
   display: flex;
   flex-flow: row nowrap;
-  perspective: 300px;
-  height: 55vh;
   background: url("../Midias/Backgrounds/backgroundTable.jpg") no-repeat center center;
   background-size:cover;
+  
+  
+}
+.tableNormal {
+  perspective: 300px;
+  height: 55vh;
+}
+.tableFullScreen {
+  perspective: 0px;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
 }
 #cardContainer {
   display: flex;
@@ -292,7 +306,11 @@ body{
   perspective: 300px;
   width: 100%;
   height: 100%;
-  
+}
+.tableFullScreen .card {
+  margin: 15px 35px;
+  width: 120px;
+  height: 182px;
 }
 #l1{
   height: fit-content;
@@ -302,12 +320,14 @@ body{
   align-items: center;
   flex-flow: row nowrap;
   justify-content: center;
+  /*O problema da distância vertical eu consegui resolver, agora a horizontal (que expande o tamanho da tela) não teve como*/
+}
+.tableNormal #l1 {
   transform: rotateX(43deg); /* Inclinando para simular a perspectiva */
   transform-origin: top bottom;
   margin-bottom: -50px;
-  /*O problema da distância vertical eu consegui resolver, agora a horizontal (que expande o tamanho da tela) não teve como*/
 }
-#l1 .card{
+.tableNormal #l1 .card{
   margin: 0 10px;
   width: 75px;
   height: 125px;
@@ -320,12 +340,14 @@ body{
   align-items: center;
   flex-flow: row nowrap;
   justify-content: center;
+  /*O problema da distância vertical eu consegui resolver, agora a horizontal (que expande o tamanho da tela) não teve como*/
+}
+.tableNormal #l2 {
   transform: rotateX(43deg); /* Inclinando para simular a perspectiva */
   transform-origin: top bottom;
   margin-bottom: -25px;
-  /*O problema da distância vertical eu consegui resolver, agora a horizontal (que expande o tamanho da tela) não teve como*/
 }
-#l2 .card{
+.tableNormal #l2 .card{
   margin: 0 20px;
   width: 90px;
   height: 136px;
@@ -336,18 +358,20 @@ body{
   justify-content: center;
   align-items: center;
   flex-flow: row nowrap;
-  justify-content: center;
+  justify-content: center;  
+  /*O problema da distância vertical eu consegui resolver, agora a horizontal (que expande o tamanho da tela) não teve como*/
+}
+.tableNormal #l3 {
   transform-origin: top bottom;
   transform: rotateX(43deg); /* Inclinando para simular a perspectiva */
   margin-bottom: 40px;
-  /*O problema da distância vertical eu consegui resolver, agora a horizontal (que expande o tamanho da tela) não teve como*/
 }
-#l3 .card{
+.tableNormal #l3 .card{
   margin: 0 35px;
   width: 120px;
   height: 182px;
 }
-.card{
+.card {
   position: relative;
   box-shadow: 0 0 15px 1px #00f;
   transition: all 1s ease;
