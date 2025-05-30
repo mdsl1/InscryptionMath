@@ -7,9 +7,6 @@ let btnPrev = document.getElementById("btnPrev");
 let btnNext = document.getElementById("btnNext");
 let roomContainer = document.getElementById("room");
 
-// Variavel da mesa das cartas
-let tableContainer = document.getElementById("tableContainer");
-
 //Variaveis para funcionamento do menu inicial
 let initialMenu = document.getElementById("initialMenuContainer");
 let btnPageGame = document.getElementById("btnPageGame");
@@ -38,11 +35,6 @@ let volumeOst = document.getElementById("volumeOst");
 let rainSound = document.getElementById("rainSound");
 let volumeRain = document.getElementById("volumeRain");
 
-
-function approachTable() {
-  tableContainer.classList.remove("tableNormal");
-  tableContainer.classList.add("tableFullScreen");
-}
 function moveToGame(){
     initialMenu.style.opacity = '0';
     initialMenu.style.visibility = 'hidden';

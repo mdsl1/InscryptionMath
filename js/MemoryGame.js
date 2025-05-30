@@ -10,11 +10,14 @@ for(let i=0;i<6;i++) {
     completeShuffledArray.push("R" + shuffledArray[i]);
 }
 
+// Variavel da mesa das cartas
+let tableContainer = document.getElementById("tableContainer");
+
 //Variaveis para funcionamento do jogo
 let firstCard = "";
 let secondCard = "";
-let numPlays = 12;
-let timeLeft = 45; //45 segundos
+let numPlays = 20;
+let timeLeft = 180; //45 segundos
 let timerInterval;
 let deaths = 0;
 let wins = 0;
@@ -39,14 +42,21 @@ function startGame(){
     if(gameStarted == 0){
         contPlays();
         createCards();
-        startTimer();
         contDeaths();
         contWins();
+        setTimeout(() => {
+            startTimer();
+        }, 1000);
     }
     else{
         return;
     }
     gameStarted++;
+}
+
+function approachTable() {
+  tableContainer.classList.toggle("tableNormal");
+  tableContainer.classList.toggle("tableFullScreen");
 }
 
 function movePupils(event) {
@@ -80,7 +90,7 @@ function createCards(){
         let flipped = document.createElement("div");
         
         // Define as classes dos novos elementos
-        back.className = "face back";
+        back.className = "face back"; //back
         flipped.className = "face flipped";
 
         back.style.backgroundImage = `url("Midias/Cards/${completeShuffledArray[i]}.png")`        
@@ -154,10 +164,10 @@ function revealCard({target}){
 }
 
 function checkCards(){
-    firstAnimal = firstCard.getAttribute("data-count");
-    secondAnimal = secondCard.getAttribute("data-count");
+    firstCount = firstCard.getAttribute("data-count");
+    secondCount = secondCard.getAttribute("data-count");
 
-    if (("R" + firstAnimal == secondAnimal) || (firstAnimal == "R" + secondAnimal)) {
+    if (("R" + firstCount == secondCount) || (firstCount == "R" + secondCount)) {
 
         firstCard.firstChild.classList.add('disabledCard');
         secondCard.firstChild.classList.add('disabledCard');
