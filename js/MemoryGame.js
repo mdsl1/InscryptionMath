@@ -247,7 +247,7 @@ function endGame(){
         setTimeout(() => {
             transition.style.opacity = '0';
             transition.style.visibility = 'hidden';
-        }, 5000); // 7 segundos para o efeito total
+        }, 6000); // 7 segundos para o efeito total
 
         //Contabiliza a morte
         deaths++;
@@ -265,12 +265,21 @@ function endGame(){
     //Volta para as configurações padrão
     result = 0;
     gameStarted = 0;
-    numPlays = 12;
-    timeLeft = 45;
+    numPlays = 20;
+    timeLeft = 180;
     firstCard = "";
     secondCard = "";
     //Embaralha as cartas novamente
     shuffledArray = flippedCardsArray.sort(()=>Math.random()-0.5);
+    for(let i=0;i<6;i++) {
+        completeShuffledArray.push(shuffledArray[i]);
+    }
+    for(let i=0;i<6;i++) {
+        completeShuffledArray.push("R" + shuffledArray[i]);
+    }
+    setTimeout(() => {
+        approachTable();
+    }, 2000);
 }
 
 volumeJumpscare.addEventListener('input', (event) => {
