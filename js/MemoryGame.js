@@ -16,8 +16,8 @@ let tableContainer = document.getElementById("tableContainer");
 //Variaveis para funcionamento do jogo
 let firstCard = "";
 let secondCard = "";
-let numPlays = 20;
-let timeLeft = 180; //45 segundos
+let numPlays = 15;
+let timeLeft = 120;
 let timerInterval;
 let deaths = 0;
 let wins = 0;
@@ -265,8 +265,8 @@ function endGame(){
     //Volta para as configurações padrão
     result = 0;
     gameStarted = 0;
-    numPlays = 20;
-    timeLeft = 180;
+    numPlays = 15;
+    timeLeft = 120;
     firstCard = "";
     secondCard = "";
     //Embaralha as cartas novamente
