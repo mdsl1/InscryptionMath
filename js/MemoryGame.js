@@ -17,7 +17,7 @@ let tableContainer = document.getElementById("tableContainer");
 let firstCard = "";
 let secondCard = "";
 let numPlays = 20;
-let timeLeft = 180; //45 segundos
+let timeLeft = 150;
 let timerInterval;
 let deaths = 0;
 let wins = 0;
@@ -266,7 +266,7 @@ function endGame(){
     result = 0;
     gameStarted = 0;
     numPlays = 20;
-    timeLeft = 180;
+    timeLeft = 150;
     firstCard = "";
     secondCard = "";
     //Embaralha as cartas novamente
