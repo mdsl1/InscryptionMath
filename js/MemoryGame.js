@@ -17,7 +17,7 @@ let tableContainer = document.getElementById("tableContainer");
 let firstCard = "";
 let secondCard = "";
 let numPlays = 15;
-let timeLeft = 120;
+let timeLeft = 150;
 let timerInterval;
 let deaths = 0;
 let wins = 0;
@@ -266,7 +266,7 @@ function endGame(){
     result = 0;
     gameStarted = 0;
     numPlays = 15;
-    timeLeft = 120;
+    timeLeft = 150;
     firstCard = "";
     secondCard = "";
     //Embaralha as cartas novamente
@@ -284,7 +284,7 @@ function endGame(){
 
 volumeJumpscare.addEventListener('input', (event) => {
     jumpscareSound.volume = event.target.value;
-  });
+});
 
 document.addEventListener("mousemove", movePupils);
 btnStartGame.addEventListener("click", startGame);
